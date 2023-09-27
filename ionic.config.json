@@ -1,0 +1,7 @@
+{
+  "name": "planty",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
