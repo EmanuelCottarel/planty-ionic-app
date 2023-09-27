@@ -1,3 +1,11 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+  <ion-tabs>
+  <ion-tab-bar slot="bottom">
+    <ion-tab-button *ngFor="let page of pages" tab='{{page.tab}}' [routerLink]=page.path>
+      <ion-icon name="{{page.icon}}"></ion-icon>
+      {{page.title}}
+    </ion-tab-button>
+  </ion-tab-bar>
+</ion-tabs>
 </ion-app>
