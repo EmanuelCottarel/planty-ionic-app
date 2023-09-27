@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-button fill="empty" [routerLink]="['/plant-list']" slot="start" >
+    <ion-button fill="empty" [routerLink]="['/plant-list']" slot="start">
       <ion-icon name="chevron-back" size="large" slot="icon-only"></ion-icon>
     </ion-button>
     <ion-title>{{plant.name}}</ion-title>
@@ -13,4 +13,26 @@
       <ion-title size="large">plant-detail</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <div class="plant__detail">
+    <ion-img class="plant__detail__img" src="{{plant.picturePath}}" alt="{{plant.species}}"></ion-img>
+  </div>
+    <ion-list>
+      <ion-item>
+        <ion-label>Nom: {{plant.name}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Dernier arrosage: {{plant.lastWatering}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Période d'arrosage: {{plant.wateringPeriod}} jours</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Espèce: {{plant.species}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label (click)="openWebsite()"><ion-icon name="link"></ion-icon> En savoir plus</ion-label>
+      </ion-item>
+    </ion-list>
+
 </ion-content>

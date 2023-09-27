@@ -10,7 +10,7 @@ export class PlantService {
 
   mockPlants: Plant[] = [
     {id: 1, name: 'Bob', lastWatering: '2023-09-10', acquiredAt: '2023-05-01', wateringPeriod: 7},
-    {id: 2, name: 'Chloë', lastWatering: '2023-09-26', acquiredAt: '2023-05-01', wateringPeriod: 4},
+    {id: 2, name: 'Chloë', lastWatering: '2023-09-26', acquiredAt: '2023-05-01', wateringPeriod: 4, species: 'Schefflera', picturePath:'/assets/img/schefflera.jpg', website: 'https://fr.wikipedia.org/wiki/Schefflera'},
     {id: 3, name: 'Daphnée', lastWatering: '2023-09-23', acquiredAt: '2023-05-01', wateringPeriod:  5},
     {id: 4, name: 'Ketsia', lastWatering: '2023-09-17', acquiredAt: '2023-05-01', wateringPeriod: 8},
     {id: 5, name: 'Olivier', lastWatering: '2023-09-02', acquiredAt: '2023-05-01', wateringPeriod: 3}
