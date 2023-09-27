@@ -3,7 +3,23 @@
 ## Présentation 
 Planty est une application de suivi de la santé de vos plantes
 
+### Technologies utilisées
+- Ionic
+- Angular 16
+- Typescript
+
 > Projet en développement
+
+### Lancer le projet
+
+Installer les packages
+> npm install
+
+Lancer le serveur ionic
+> ionic serve
+
+Ou lancer avec capacitor
+> ionic cap run android
 
 ## Fonctionnalités
 - [ ] L'utilisateur peut voir la liste de ses plantes: 
