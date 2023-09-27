@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>plant-detail</ion-title>
+    <ion-button fill="empty" [routerLink]="['/plant-list']" slot="start" >
+      <ion-icon name="chevron-back" size="large" slot="icon-only"></ion-icon>
+    </ion-button>
+    <ion-title>{{plant.name}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
