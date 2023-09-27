@@ -26,9 +26,9 @@ Planty est une application de suivi de la santé de vos plantes
   - l'espece de la plante
   - un lien vers la page wikipedia de l'espece
 -  [ ] L'utilisateur peut modifier les détails de sa plantes
-  - un select comportant la liste des especes de plantes permet à l'utilisateur de choisir l'espèce qui sera afficher sur la page détail
-  - un formulaire pour modifier les autres propriétés
-  - pouvoir enregistrer les modifications
-  - pouvoir supprimer les modifications
+    - un select comportant la liste des especes de plantes permet à l'utilisateur de choisir l'espèce qui sera afficher sur la page détail
+    - un formulaire pour modifier les autres propriétés
+    - pouvoir enregistrer les modifications
+    - pouvoir supprimer les modifications
 - [ ] L'utilisateur peut supprimer sa plante
   - une popup de confirmation apparait  
