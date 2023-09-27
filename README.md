@@ -22,7 +22,7 @@ Ou lancer avec capacitor
 > ionic cap run android
 
 ## Fonctionnalités
-- [ ] Un carroussel présent tout en haut de l'application dans une catégorie 'plantes a arroser' - Page Dashboard
+- [ ] Un caroussel présent tout en haut de l'application dans une catégorie 'plantes a arroser' - Page Dashboard
   - L'utilisateur peut cliquer sur la plante pour directement enregistrer un arrosage
   - la carte de la plante:
     -  une photo par défaut ou une photo prise par l'utilisateur
