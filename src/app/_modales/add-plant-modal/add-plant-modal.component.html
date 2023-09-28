@@ -6,30 +6,86 @@
       </ion-button>
     </ion-buttons>
     <ion-title>Ajouter une plante</ion-title>
-
   </ion-toolbar>
 </ion-header>
+
 <ion-content class="ion-padding">
-  <form>
+  <form [formGroup]="plantForm">
     <ion-item>
-      <ion-input [(ngModel)]="newPlant.name" name="name" label="Nom" type='text'></ion-input>
+      <ion-input
+        name="name"
+        id="name"
+        label="Nom*"
+        type='text'
+        formControlName="name">
+      </ion-input>
     </ion-item>
+    <div class="form__error"
+         *ngIf="plantForm.controls['name'].invalid && (plantForm.controls['name'].dirty || plantForm.controls['name'].touched)">
+      <div class="form__error__message" *ngIf="plantForm.controls['name'].errors?.['required']">Le champs est
+        obligatoire
+      </div>
+    </div>
+
     <ion-item>
-      <ion-input [(ngModel)]="newPlant.species" name="species" label="Espèce" type="text"></ion-input>
+      <ion-input
+        name="species"
+        label="Espèce"
+        type="text"
+        formControlName="species">
+      </ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-input [(ngModel)]="newPlant.website" name="website" label="Lien" type="text"></ion-input>
+      <ion-input
+        name="website"
+        label="Lien"
+        type="text"
+        formControlName="website">
+      </ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-input [(ngModel)]="newPlant.lastWatering" name="website" label="Date dernier arrosage"
-                 type="date"></ion-input>
+      <ion-input
+        name="acquiredAt"
+        label="Date d'acquisition"
+        type="date"
+        formControlName="acquiredAt">
+      </ion-input>
     </ion-item>
+
     <ion-item>
-      <ion-input [(ngModel)]="newPlant.wateringPeriod" name="wateringPeriod" label="Période d'arrosage (en jour)"
-                 type="number"></ion-input>
+      <ion-input
+        name="lastWatering"
+        label="Date dernier du arrosage*"
+        type="date"
+        formControlName="lastWatering">
+      </ion-input>
     </ion-item>
+    <div class="form__error"
+         *ngIf="plantForm.controls['lastWatering'].invalid && (plantForm.controls['lastWatering'].dirty || plantForm.controls['lastWatering'].touched)">
+      <div class="form__error__message" *ngIf="plantForm.controls['lastWatering'].errors?.['required']">Le champs est
+        obligatoire
+      </div>
+    </div>
+
     <ion-item>
-      <ion-label>Ajouter une photo</ion-label>
+      <ion-input
+        name="wateringPeriod"
+        label="Période d'arrosage (en jour)*"
+        type="number"
+        formControlName="wateringPeriod">
+      </ion-input>
+    </ion-item>
+    <div class="form__error"
+         *ngIf="plantForm.controls['wateringPeriod'].invalid && (plantForm.controls['wateringPeriod'].dirty || plantForm.controls['wateringPeriod'].touched)">
+      <div class="form__error__message" *ngIf="plantForm.controls['wateringPeriod'].errors?.['required']">Le champs est
+        obligatoire
+      </div>
+    </div>
+
+    <ion-item>
+      <ion-label>Photos</ion-label>
       <ion-button (click)="addPhotoToGallery()">Ajouter une photo</ion-button>
     </ion-item>
   </form>
@@ -44,8 +100,11 @@
       </ion-row>
     </ion-grid>
     <ion-buttons>
-      <ion-button (click)="handleSubmit()">Enregistrer</ion-button>
-      <ion-button (click)="cancel()" color="danger">Annuler</ion-button>
+      <ion-button [disabled]="plantForm.invalid" (click)="handleSubmit()" fill="solid" class="btn-full">Enregistrer
+      </ion-button>
+    </ion-buttons>
+    <ion-buttons>
+      <ion-button (click)="cancel()" color="danger" fill="solid" class="btn-full">Annuler</ion-button>
     </ion-buttons>
   </ion-content>
 

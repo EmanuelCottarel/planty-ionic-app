@@ -18,6 +18,7 @@ export class PlantService {
       acquiredAt: '2023-05-01',
       wateringPeriod: 7,
       picturePath: '/assets/img/areca.jpg',
+      website: 'https://fr.wikipedia.org/wiki/Areca',
       plantPhoto: []
     },
     {
@@ -38,6 +39,7 @@ export class PlantService {
       acquiredAt: '2023-05-01',
       wateringPeriod: 5,
       picturePath: '/assets/img/aloe-vera.jpg',
+      website: 'https://fr.wikipedia.org/wiki/Aloe_vera' ,
       plantPhoto: []
     },
     {
@@ -47,6 +49,7 @@ export class PlantService {
       acquiredAt: '2023-05-01',
       wateringPeriod: 8,
       picturePath: '/assets/img/monstera.jpg',
+      website: 'https://fr.wikipedia.org/wiki/Monstera',
       plantPhoto: []
     },
     {
@@ -56,6 +59,7 @@ export class PlantService {
       acquiredAt: '2023-05-01',
       wateringPeriod: 3,
       picturePath: '/assets/img/solanum.jpg',
+      website:'https://fr.wikipedia.org/wiki/Solanum',
       plantPhoto: []
     }
   ]

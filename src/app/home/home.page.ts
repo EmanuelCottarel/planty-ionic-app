@@ -8,22 +8,30 @@ import {PlantService} from "../_services/plant.service";
 import {DateService} from "../_services/date.service";
 import {ToastService} from "../_services/toast.service";
 
+
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-    imports: [IonicModule, NgForOf, NgIf],
+  imports: [IonicModule, NgForOf, NgIf],
 })
 export class HomePage implements OnInit {
+
+  currentUser!: User;
+  plantToWater!: Plant[];
+  nbPlants!: number;
+  nbPlantToWater!: number;
+
   constructor(
     private readonly userService: UserService,
     private readonly plantService: PlantService,
     private readonly dateService: DateService,
     private readonly actionSheetController: ActionSheetController,
-    private readonly toastService: ToastService
+    private readonly toastService: ToastService,
   ) {
   }
+
 
   async presentActionSheet(plant: Plant) {
     const actionSheet = await this.actionSheetController.create({
@@ -47,10 +55,6 @@ export class HomePage implements OnInit {
     await actionSheet.present();
   }
 
-  currentUser!: User;
-  plantToWater!: Plant[];
-  nbPlants!: number;
-  nbPlantToWater!: number;
 
   ngOnInit() {
     this.currentUser = this.userService.getUser();

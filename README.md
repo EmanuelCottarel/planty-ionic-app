@@ -29,7 +29,7 @@ Ou lancer avec capacitor
     - nom
     - besoin d'arrosage ou non sous forme de badge
       
-- [ ] Affichage des infos utilisateurs - Page Dashboard
+- [X] Affichage des infos utilisateurs - Page Dashboard
     - son nom
     - son nombre de plante
     
@@ -54,5 +54,5 @@ Ou lancer avec capacitor
     - pouvoir enregistrer les modifications
     - pouvoir supprimer les modifications
       
-- [ ] L'utilisateur peut supprimer sa plante - Page détail de la plante
+- [X] L'utilisateur peut supprimer sa plante - Page détail de la plante
   - une popup de confirmation apparait  

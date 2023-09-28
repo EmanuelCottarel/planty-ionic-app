@@ -25,13 +25,14 @@
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
 
-.title-between{
+
+.title-between {
   display: flex;
   justify-content: space-between;
 
 }
 
-.card__badge{
+.card__badge {
   position: absolute;
   background-color: transparent;
   top: 0;
@@ -41,15 +42,32 @@
 
 }
 
-.list__inline{
+.list__inline {
   display: flex;
 }
 
-.ml-2{
+.ml-2 {
   margin-left: 2rem;
 }
 
-.card__badge__icon{
+.card__badge__icon {
   margin-right: 1rem;
   margin-top: 1rem;
 }
+
+.form__error {
+  background-color: #e0405550;
+  padding: 0.5rem;
+
+  &__message {
+    color: #800000;
+  }
+}
+
+.btn-full {
+  display: flex;
+  width: 100%;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+}
+

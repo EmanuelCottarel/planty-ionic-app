@@ -1,3 +1,5 @@
+
+
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
@@ -14,7 +16,8 @@
       <ion-card-header>
         <ion-card-title class="title-between">
           <span>Bonjour {{currentUser.firstName}}!</span>
-          <span title="Nombre de plantes"><ion-icon name="leaf"></ion-icon> {{nbPlants}} </span>
+          <span title="Nombre de plantes"><ion-icon name="leaf"></ion-icon>
+            {{nbPlants}} </span>
         </ion-card-title>
       </ion-card-header>
 
@@ -27,17 +30,21 @@
   <section>
     <h2>Les plantes à arroser</h2>
 
-    <ion-card *ngFor="let plant of plantToWater" button="true" (click)="presentActionSheet(plant)">
-      <img *ngIf="plant.plantPhoto.length === 0"  alt="Photo de la plante {{plant.name}}" src="{{plant.picturePath}}"/>
-      <img *ngIf="plant.plantPhoto.length > 0"  alt="Photo de la plante {{plant.name}}" src="{{plant.plantPhoto[0].webviewPath}}"/>
-        <div class="card__badge">
-          <ion-badge class="card__badge__icon" slot="start"><ion-icon name="water" size="large"></ion-icon></ion-badge>
-        </div>
-      <ion-card-header>
-        <ion-card-title>{{plant.name}}</ion-card-title>
-      </ion-card-header>
+        <ion-card *ngFor="let plant of plantToWater" button="true" (click)="presentActionSheet(plant)">
+          <img *ngIf="plant.plantPhoto.length === 0" alt="Photo de la plante {{plant.name}}" src="{{plant.picturePath}}"/>
+          <img *ngIf="plant.plantPhoto.length > 0" alt="Photo de la plante {{plant.name}}"
+               src="{{plant.plantPhoto[0].webviewPath}}"/>
+          <div class="card__badge">
+            <ion-badge class="card__badge__icon" slot="start">
+              <ion-icon name="water" size="large"></ion-icon>
+            </ion-badge>
+          </div>
+          <ion-card-header>
+            <ion-card-title>{{plant.name}}</ion-card-title>
+          </ion-card-header>
 
-    </ion-card>
+        </ion-card>
+
 
   </section>
 </ion-content>
