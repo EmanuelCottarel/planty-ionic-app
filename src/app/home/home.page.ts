@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {ActionSheetController, IonicModule} from '@ionic/angular';
 import {UserService} from "../_services/user.service";
 import {User} from "../_interfaces/user";
-import {NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {Plant} from "../_interfaces/plant";
 import {PlantService} from "../_services/plant.service";
 import {DateService} from "../_services/date.service";
@@ -13,7 +13,7 @@ import {ToastService} from "../_services/toast.service";
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonicModule, NgForOf],
+    imports: [IonicModule, NgForOf, NgIf],
 })
 export class HomePage implements OnInit {
   constructor(
@@ -38,7 +38,7 @@ export class HomePage implements OnInit {
           }
         },
         {
-          text: 'Cancel',
+          text: 'Annuler',
           icon: 'close',
           role: 'cancel'
         },

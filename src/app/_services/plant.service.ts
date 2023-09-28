@@ -1,12 +1,13 @@
 import {Injectable} from '@angular/core';
 import {Plant} from "../_interfaces/plant";
+import {ToastService} from "./toast.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PlantService {
 
-  constructor() {
+  constructor(private  readonly toastService: ToastService) {
   }
 
   mockPlants: Plant[] = [
@@ -65,6 +66,12 @@ export class PlantService {
 
   addPlant(plant: Plant){
     this.mockPlants.push(plant);
+    this.toastService.showSuccesToast('Plante ajoutée!')
+  }
+
+  deletePlant(plantId: number){
+    this.mockPlants = this.mockPlants.filter((plant) => plant.id !== plantId);
+    this.toastService.showSuccesToast('Plante supprimée!')
   }
 
   getPlantsToWater(): Plant[] {

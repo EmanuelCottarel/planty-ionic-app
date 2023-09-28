@@ -24,11 +24,11 @@ export class AddPlantModalComponent implements OnInit {
 
   newPlant: Plant = {
     name: '',
-    picturePath: '',
+    picturePath: '/assets/img/default-plant.webp',
     wateringPeriod: 4,
-    lastWatering: 'ttt',
+    lastWatering: '',
     id: this.plantService.getAll().length,
-    acquiredAt: 'ttt',
+    acquiredAt: '',
     plantPhoto: [],
   }
 

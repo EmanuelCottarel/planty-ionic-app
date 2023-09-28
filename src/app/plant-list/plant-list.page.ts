@@ -31,9 +31,8 @@ export class PlantListPage implements OnInit {
   async presentDeleteAlert(plant: Plant) {
     const alert = await this.alertController.create(
       {
-        header: 'Supprimer cet étudiant ?',
+        header: 'Supprimer cette plante ?',
         subHeader: `${plant.name}`,
-        message: 'Cette opération ne pourra etre annulée',
         buttons: [
           {
             text: 'Supprimer',
@@ -50,7 +49,8 @@ export class PlantListPage implements OnInit {
   }
 
   deletePlant(plantId: number) {
-    console.log(plantId);
+   this.plantService.deletePlant(plantId);
+   this.plantList = this.plantService.getAll();
   }
 
   async openModal() {

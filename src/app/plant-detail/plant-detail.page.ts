@@ -5,6 +5,7 @@ import {IonicModule} from '@ionic/angular';
 import {Plant} from "../_interfaces/plant";
 import {RouterLink} from "@angular/router";
 import {Browser} from "@capacitor/browser";
+import {PhotoService} from "../_services/photo.service";
 
 @Component({
   selector: 'app-plant-detail',
@@ -15,7 +16,9 @@ import {Browser} from "@capacitor/browser";
 })
 export class PlantDetailPage implements OnInit {
 
-  constructor(private readonly location: Location) {
+  constructor(
+    private readonly location: Location,
+    private readonly photoService: PhotoService) {
   }
 
   plant!: Plant;
@@ -23,7 +26,7 @@ export class PlantDetailPage implements OnInit {
 
   ngOnInit() {
     this.plant = this.location.getState() as Plant;
-    if (this.plant.plantPhoto) {
+    if (this.plant.plantPhoto.length > 0) {
       this.mainPictureUrl = this.plant.plantPhoto[0].webviewPath
     }
 
@@ -33,6 +36,10 @@ export class PlantDetailPage implements OnInit {
     if (this.plant.website) {
       await Browser.open({url: this.plant.website})
     }
+  }
+
+    addPhotoToGallery() {
+    this.photoService.addNewToGallery(this.plant);
   }
 
 }

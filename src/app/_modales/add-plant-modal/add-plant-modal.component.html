@@ -21,7 +21,8 @@
       <ion-input [(ngModel)]="newPlant.website" name="website" label="Lien" type="text"></ion-input>
     </ion-item>
     <ion-item>
-      <ion-input [(ngModel)]="newPlant.lastWatering" name="website" label="Date dernier arrosage" type="date"></ion-input>
+      <ion-input [(ngModel)]="newPlant.lastWatering" name="website" label="Date dernier arrosage"
+                 type="date"></ion-input>
     </ion-item>
     <ion-item>
       <ion-input [(ngModel)]="newPlant.wateringPeriod" name="wateringPeriod" label="Période d'arrosage (en jour)"
@@ -34,18 +35,18 @@
   </form>
 
 
-    <ion-content>
-      <ion-grid>
-        <ion-row>
-          <ion-col size="3" *ngFor="let photo of newPlant.plantPhoto; index as position">
-            <ion-img [src]="photo.webviewPath"></ion-img>
-          </ion-col>
-        </ion-row>
-      </ion-grid>
-      <ion-buttons>
-        <ion-button (click)="handleSubmit()">Enregistrer</ion-button>
-        <ion-button (click)="cancel()" color="danger">Annuler</ion-button>
-      </ion-buttons>
-    </ion-content>
+  <ion-content>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="3" *ngFor="let photo of newPlant.plantPhoto; index as position">
+          <ion-img [src]="photo.webviewPath"></ion-img>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-buttons>
+      <ion-button (click)="handleSubmit()">Enregistrer</ion-button>
+      <ion-button (click)="cancel()" color="danger">Annuler</ion-button>
+    </ion-buttons>
+  </ion-content>
 
 </ion-content>

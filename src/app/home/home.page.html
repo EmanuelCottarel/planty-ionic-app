@@ -28,7 +28,8 @@
     <h2>Les plantes à arroser</h2>
 
     <ion-card *ngFor="let plant of plantToWater" button="true" (click)="presentActionSheet(plant)">
-      <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"/>
+      <img *ngIf="plant.plantPhoto.length === 0"  alt="Photo de la plante {{plant.name}}" src="{{plant.picturePath}}"/>
+      <img *ngIf="plant.plantPhoto.length > 0"  alt="Photo de la plante {{plant.name}}" src="{{plant.plantPhoto[0].webviewPath}}"/>
         <div class="card__badge">
           <ion-badge class="card__badge__icon" slot="start"><ion-icon name="water" size="large"></ion-icon></ion-badge>
         </div>
