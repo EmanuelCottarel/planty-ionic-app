@@ -11,8 +11,10 @@
       <ion-item>
         <ion-avatar>
 
-          <img *ngIf="plant.plantPhoto.length === 0" alt="Photo de la plante {{plant.name}}" src="{{plant.picturePath}}"/>
-          <img *ngIf="plant.plantPhoto.length > 0" alt="Photo de la plante {{plant.name}}" src="{{plant.plantPhoto[0].webviewPath}}"/>
+          <img *ngIf="plant.plantPhoto.length === 0" alt="Photo de la plante {{plant.name}}"
+               src="{{plant.picturePath}}"/>
+          <img *ngIf="plant.plantPhoto.length > 0" alt="Photo de la plante {{plant.name}}"
+               src="{{plant.plantPhoto[0].webviewPath}}"/>
         </ion-avatar>
         <!--        <ion-icon name="leaf" slot="start"></ion-icon>-->
         <ion-label class="ml-2">
@@ -32,6 +34,7 @@
       </ion-item>
 
       <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="presentActionSheet(plant)">Arroser</ion-item-option>
         <ion-item-option color="danger" (click)="presentDeleteAlert(plant)">Supprimer</ion-item-option>
       </ion-item-options>
     </ion-item-sliding>
