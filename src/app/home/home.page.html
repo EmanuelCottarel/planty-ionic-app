@@ -29,9 +29,9 @@
 
     <ion-card *ngFor="let plant of plantToWater" button="true" (click)="presentActionSheet(plant)">
       <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png"/>
-        <ion-item class="card__badge">
-          <ion-badge class="card__badge__icon" slot="start"><ion-icon name="water"></ion-icon></ion-badge>
-        </ion-item>
+        <div class="card__badge">
+          <ion-badge class="card__badge__icon" slot="start"><ion-icon name="water" size="large"></ion-icon></ion-badge>
+        </div>
       <ion-card-header>
         <ion-card-title>{{plant.name}}</ion-card-title>
       </ion-card-header>

@@ -8,14 +8,9 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">plant-detail</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <div class="plant__detail">
-    <ion-img class="plant__detail__img" src="{{plant.picturePath}}" alt="{{plant.species}}"></ion-img>
+    <ion-img class="plant__detail__img" src="{{mainPictureUrl? mainPictureUrl : plant.picturePath}}" alt="{{plant.species}}"></ion-img>
   </div>
     <ion-list>
       <ion-item>

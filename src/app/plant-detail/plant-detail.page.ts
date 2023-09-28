@@ -19,9 +19,14 @@ export class PlantDetailPage implements OnInit {
   }
 
   plant!: Plant;
+  mainPictureUrl?: string;
 
   ngOnInit() {
     this.plant = this.location.getState() as Plant;
+    if (this.plant.plantPhoto) {
+      this.mainPictureUrl = this.plant.plantPhoto[0].webviewPath
+    }
+
   }
 
   async openWebsite() {

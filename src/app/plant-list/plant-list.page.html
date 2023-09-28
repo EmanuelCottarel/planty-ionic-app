@@ -6,11 +6,16 @@
 
 <ion-content [fullscreen]="true">
 
-    <ion-list lines="full">
+  <ion-list lines="full">
     <ion-item-sliding *ngFor="let plant of plantList">
       <ion-item>
-        <ion-icon name="leaf" slot="start"></ion-icon>
-        <ion-label >
+        <ion-avatar>
+
+          <img *ngIf="plant.plantPhoto.length === 0" alt="Photo de la plante {{plant.name}}" src="{{plant.picturePath}}"/>
+          <img *ngIf="plant.plantPhoto.length > 0" alt="Photo de la plante {{plant.name}}" src="{{plant.plantPhoto[0].webviewPath}}"/>
+        </ion-avatar>
+        <!--        <ion-icon name="leaf" slot="start"></ion-icon>-->
+        <ion-label class="ml-2">
           <div>{{plant.name}}</div>
         </ion-label>
         <ion-label class="list__inline">
@@ -31,4 +36,10 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openModal()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>

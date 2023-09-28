@@ -1,3 +1,5 @@
+import {PlantPhoto} from "./plantPhoto";
+
 export interface Plant {
   id: number;
   name: string;
@@ -8,5 +10,6 @@ export interface Plant {
   picturePath?: string;
   species?: string;
   website?: string;
+  plantPhoto: PlantPhoto[];
 
 }

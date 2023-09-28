@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {AlertController, IonicModule} from '@ionic/angular';
+import {AlertController, IonicModule, ModalController} from '@ionic/angular';
 import {PlantService} from "../_services/plant.service";
 import {Plant} from "../_interfaces/plant";
 import {RouterLink} from "@angular/router";
+import {AddPlantModalComponent} from "../_modales/add-plant-modal/add-plant-modal.component";
 
 @Component({
   selector: 'app-plant-list',
@@ -17,7 +18,8 @@ export class PlantListPage implements OnInit {
 
   constructor(
     private readonly plantService: PlantService,
-    private readonly alertController: AlertController) { }
+    private readonly alertController: AlertController,
+    private readonly modalController: ModalController) { }
 
   plantList!: Plant[]
 
@@ -48,6 +50,21 @@ export class PlantListPage implements OnInit {
 
   deletePlant(plantId: number){
     console.log(plantId);
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: AddPlantModalComponent,
+    });
+    await modal.present();
+
+    const { data, role } = await modal.onWillDismiss();
+
+    this.plantList = this.plantService.getAll();
+    // this.plantList.push(data)
+    if (role === 'confirm') {
+      console.log('test')
+    }
   }
 
 
