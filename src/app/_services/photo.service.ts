@@ -32,8 +32,6 @@ export class PhotoService {
 
     plant.plantPhoto?.push(await this.savePicture(capturedPhoto)
   )
-    this.plantService.updatePlant(plant)
-
     this.photos.unshift(savedImageFile);
 
     Preferences.set({

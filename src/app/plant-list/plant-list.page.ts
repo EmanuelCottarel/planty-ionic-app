@@ -19,7 +19,8 @@ export class PlantListPage implements OnInit {
   constructor(
     private readonly plantService: PlantService,
     private readonly alertController: AlertController,
-    private readonly modalController: ModalController) { }
+    private readonly modalController: ModalController) {
+  }
 
   plantList!: Plant[]
 
@@ -27,7 +28,7 @@ export class PlantListPage implements OnInit {
     this.plantList = this.plantService.getAll();
   }
 
-   async presentDeleteAlert(plant: Plant) {
+  async presentDeleteAlert(plant: Plant) {
     const alert = await this.alertController.create(
       {
         header: 'Supprimer cet étudiant ?',
@@ -48,7 +49,7 @@ export class PlantListPage implements OnInit {
     return await alert.present();
   }
 
-  deletePlant(plantId: number){
+  deletePlant(plantId: number) {
     console.log(plantId);
   }
 
@@ -58,12 +59,9 @@ export class PlantListPage implements OnInit {
     });
     await modal.present();
 
-    const { data, role } = await modal.onWillDismiss();
-
-    this.plantList = this.plantService.getAll();
-    // this.plantList.push(data)
+    const {data, role} = await modal.onWillDismiss();
     if (role === 'confirm') {
-      console.log('test')
+      this.plantList = this.plantService.getAll();
     }
   }
 

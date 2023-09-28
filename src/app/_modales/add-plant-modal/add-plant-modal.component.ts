@@ -41,9 +41,7 @@ export class AddPlantModalComponent implements OnInit {
 
   handleSubmit() {
     this.plantService.addPlant(this.newPlant);
-    console.log(this.plantService.getAll())
-
-    return this.modalController.dismiss(null, 'cancel');
+    return this.modalController.dismiss(null, 'confirm');
   }
 
   deletePictures() {
@@ -55,7 +53,4 @@ export class AddPlantModalComponent implements OnInit {
     return this.modalController.dismiss(null, 'cancel');
   }
 
-  confirm() {
-    return this.modalController.dismiss(this.newPlant, 'confirm');
-  }
 }
