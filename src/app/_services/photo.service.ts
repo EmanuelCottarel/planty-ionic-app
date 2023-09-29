@@ -88,35 +88,7 @@ export class PhotoService {
     reader.readAsDataURL(blob);
   });
 
-  public async loadSaved() {
-    const {value} = await Preferences.get({key: this.PHOTO_STORAGE});
-    this.photos = (value ? JSON.parse(value) : []) as PlantPhoto[];
 
-    if (!this.platform.is('hybrid')) {
-      for (let photo of this.photos) {
-        const readFile = await Filesystem.readFile({
-          path: photo.filepath,
-          directory: Directory.Data
-        });
-
-        photo.webviewPath = `data:image/jpeg;base64,${readFile.data}`;
-      }
-    }
-  }
-
-  public async deletePictures() {
-
-    await Preferences.clear();
-    if (!this.platform.is('hybrid')) {
-      for (let photo of this.photos) {
-        const readFile = await Filesystem.deleteFile({
-          path: photo.filepath,
-          directory: Directory.Data
-        });
-
-      }
-    }
-  }
 
 }
 
