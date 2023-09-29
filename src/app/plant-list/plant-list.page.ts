@@ -20,12 +20,12 @@ import {ToastService} from "../_services/toast.service";
 export class PlantListPage implements OnInit {
 
   constructor(
-    private readonly plantService: PlantService,
-    private readonly alertController: AlertController,
-    private readonly modalController: ModalController,
-    private readonly actionSheetController: ActionSheetController,
-    private readonly dateService: DateService,
-    private readonly toastService: ToastService,
+    protected plantService: PlantService,
+    private alertController: AlertController,
+    private modalController: ModalController,
+    private actionSheetController: ActionSheetController,
+    protected dateService: DateService,
+    private toastService: ToastService,
     private router: Router) {
   }
 

@@ -42,8 +42,11 @@
 
 }
 
-.list__inline {
+.items-center{
   display: flex;
+  align-items: center;
+  gap: 1rem;
+
 }
 
 .ml-2 {

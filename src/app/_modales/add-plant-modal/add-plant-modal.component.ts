@@ -18,8 +18,8 @@ import {plantForm} from "../../_forms/plant-form";
 export class AddPlantModalComponent implements OnInit {
 
   constructor(
-    private readonly modalController: ModalController,
-    private readonly plantService: PlantService,
+    private modalController: ModalController,
+    private plantService: PlantService,
     protected photoService: PhotoService) {
   }
 

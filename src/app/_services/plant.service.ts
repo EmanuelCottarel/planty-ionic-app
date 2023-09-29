@@ -7,7 +7,7 @@ import {ToastService} from "./toast.service";
 })
 export class PlantService {
 
-  constructor(private  readonly toastService: ToastService) {
+  constructor(private readonly toastService: ToastService) {
   }
 
   mockPlants: Plant[] = [
@@ -19,7 +19,8 @@ export class PlantService {
       wateringPeriod: 7,
       picturePath: '/assets/img/areca.jpg',
       website: 'https://fr.wikipedia.org/wiki/Areca',
-      plantPhoto: []
+      plantPhoto: [],
+      species: 'Areca'
     },
     {
       id: 2,
@@ -30,7 +31,7 @@ export class PlantService {
       species: 'Schefflera',
       picturePath: '/assets/img/schefflera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Schefflera',
-      plantPhoto: []
+      plantPhoto: [],
     },
     {
       id: 3,
@@ -39,8 +40,9 @@ export class PlantService {
       acquiredAt: '2023-05-01',
       wateringPeriod: 5,
       picturePath: '/assets/img/aloe-vera.jpg',
-      website: 'https://fr.wikipedia.org/wiki/Aloe_vera' ,
-      plantPhoto: []
+      website: 'https://fr.wikipedia.org/wiki/Aloe_vera',
+      plantPhoto: [],
+      species: 'Aloe-vera'
     },
     {
       id: 4,
@@ -50,7 +52,8 @@ export class PlantService {
       wateringPeriod: 8,
       picturePath: '/assets/img/monstera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Monstera',
-      plantPhoto: []
+      plantPhoto: [],
+      species:'Monstera'
     },
     {
       id: 5,
@@ -59,8 +62,9 @@ export class PlantService {
       acquiredAt: '2023-05-01',
       wateringPeriod: 3,
       picturePath: '/assets/img/solanum.jpg',
-      website:'https://fr.wikipedia.org/wiki/Solanum',
-      plantPhoto: []
+      website: 'https://fr.wikipedia.org/wiki/Solanum',
+      plantPhoto: [],
+      species: 'Solanum'
     }
   ]
 
@@ -68,23 +72,26 @@ export class PlantService {
     return [...this.mockPlants];
   }
 
-  addPlant(plant: Plant){
+  addPlant(plant: Plant) {
     this.mockPlants.push(plant);
     this.toastService.showSuccesToast('Plante ajoutée!')
   }
 
-  deletePlant(plantId: number){
+  deletePlant(plantId: number) {
     this.mockPlants = this.mockPlants.filter((plant) => plant.id !== plantId);
     this.toastService.showSuccesToast('Plante supprimée!')
+  }
+
+  getWateringDate(plant: Plant) {
+    const wateringDate = new Date(plant.lastWatering);
+    wateringDate.setDate(wateringDate.getDate() + plant.wateringPeriod);
+    return wateringDate;
   }
 
   getPlantsToWater(): Plant[] {
     return this.getAll().filter((plant) => {
       const today = new Date;
-      const wateringDate = new Date(plant.lastWatering);
-      wateringDate.setDate(wateringDate.getDate() + plant.wateringPeriod);
-
-      return wateringDate <= today;
+      return this.getWateringDate(plant) <= today;
     })
   }
 
