@@ -22,7 +22,7 @@ Ou lancer avec capacitor
 > ionic cap run android
 
 ## Fonctionnalités
-- [ ] Un caroussel présent tout en haut de l'application dans une catégorie 'plantes a arroser' - Page Dashboard
+- [X] Liste des 'plantes a arroser' - Page Dashboard
   - L'utilisateur peut cliquer sur la plante pour directement enregistrer un arrosage
   - la carte de la plante:
     -  une photo par défaut ou une photo prise par l'utilisateur
@@ -48,11 +48,19 @@ Ou lancer avec capacitor
   - l'espece de la plante
   - un lien vers la page wikipedia de l'espece
     
--  [ ] L'utilisateur peut modifier les détails de sa plantes - Page détail de la plante
+-  [X] L'utilisateur peut modifier les détails de sa plantes - Page détail de la plante
     - un select comportant la liste des especes de plantes permet à l'utilisateur de choisir l'espèce qui sera afficher sur la page détail
     - un formulaire pour modifier les autres propriétés
     - pouvoir enregistrer les modifications
     - pouvoir supprimer les modifications
       
 - [X] L'utilisateur peut supprimer sa plante - Page détail de la plante
-  - une popup de confirmation apparait  
+  - une popup de confirmation apparait
+     
+## A venir
+### Branche dev - développement en cours
+- Pouvoir ajouter les coordonnées de la plante
+- Pouvoir voir ou se trouve la plante sur une carte
+
+### Capteur humidité du sol
+Utilisation d'un capteur d'humidité pour obtenir le taux d'humidité et savoir quelles plantes ont besoin d'être arrosées
