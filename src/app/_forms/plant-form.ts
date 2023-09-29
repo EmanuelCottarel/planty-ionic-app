@@ -6,5 +6,7 @@ export const plantForm: FormGroup = new FormGroup({
   lastWatering: new FormControl('', Validators.required),
   wateringPeriod: new FormControl('', Validators.required),
   species: new FormControl(''),
-  website: new FormControl('')
+  website: new FormControl(''),
+  position: new FormControl(''),
+  coordinates: new FormControl(''),
 })

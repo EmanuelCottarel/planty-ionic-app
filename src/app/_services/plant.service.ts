@@ -21,7 +21,8 @@ export class PlantService {
       website: 'https://fr.wikipedia.org/wiki/Areca',
       plantPhoto: [],
       species: 'Areca',
-      position: 'Intérieur'
+      position: 'interior',
+      coordinates: {latitude: 46.227638, longitude: 2.213749}
     },
     {
       id: 2,
@@ -33,7 +34,8 @@ export class PlantService {
       picturePath: '/assets/img/schefflera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Schefflera',
       plantPhoto: [],
-      position: 'Intérieur'
+      position: 'interior',
+      coordinates: {latitude: 0, longitude: 0}
     },
     {
       id: 3,
@@ -45,7 +47,8 @@ export class PlantService {
       website: 'https://fr.wikipedia.org/wiki/Aloe_vera',
       plantPhoto: [],
       species: 'Aloe-vera',
-      position: 'Intérieur'
+      position: 'interior',
+      coordinates: {latitude: 0, longitude: 0}
     },
     {
       id: 4,
@@ -56,8 +59,9 @@ export class PlantService {
       picturePath: '/assets/img/monstera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Monstera',
       plantPhoto: [],
-      species:'Monstera',
-      position: 'Intérieur'
+      species: 'Monstera',
+      position: 'interior',
+      coordinates: {latitude: 0, longitude: 0}
     },
     {
       id: 5,
@@ -69,13 +73,17 @@ export class PlantService {
       website: 'https://fr.wikipedia.org/wiki/Solanum',
       plantPhoto: [],
       species: 'Solanum',
-      position: 'Intérieur'
-
+      position: 'interior',
+      coordinates: {latitude: 0, longitude: 0}
     }
   ]
 
   getAll(): Plant[] {
     return [...this.mockPlants];
+  }
+
+  getPlantById(plantId: number):Plant | null {
+      return this.mockPlants.find((p) => p.id === plantId) ?? null
   }
 
   addPlant(plant: Plant) {

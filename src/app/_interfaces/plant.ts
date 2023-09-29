@@ -1,4 +1,5 @@
 import {PlantPhoto} from "./plantPhoto";
+import {Coordinates} from "./coordinates";
 
 export interface Plant {
   id: number;
@@ -11,5 +12,6 @@ export interface Plant {
   species?: string;
   website?: string;
   plantPhoto: PlantPhoto[];
+  coordinates?: Coordinates;
 
 }

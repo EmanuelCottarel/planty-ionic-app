@@ -84,10 +84,17 @@
       </div>
     </div>
 
-    <ion-radio-group>
-      <ion-radio value="interior">Intérieur</ion-radio>
-      <ion-radio value="exterior">Jardin</ion-radio>
-    </ion-radio-group>
+    <ion-item>
+      <ion-label>Emplacement</ion-label>
+      <ion-radio-group formControlName="position">
+        <ion-radio value="{{PlantPosition.INTERIOR.valueOf()}}">Intérieur</ion-radio>
+        <ion-radio value="{{PlantPosition.EXTERIOR.valueOf()}}">Jardin</ion-radio>
+      </ion-radio-group>
+    </ion-item>
+
+    <ion-item *ngIf="plantForm.controls['position'].value === PlantPosition.EXTERIOR.valueOf()">
+      <ion-button (click)="getCoordinates()">Définir la position de la plante à mon emplacement</ion-button>
+    </ion-item>
 
     <ion-item>
       <ion-label>Photos</ion-label>
