@@ -50,7 +50,7 @@ export class PlantDetailPage implements OnInit {
   async openModal() {
     const modal = await this.modalController.create({
       component: AddPlantModalComponent,
-      componentProps: {plant: this.plant}
+      componentProps: {plant: this.plant, action:'update'}
     });
     await modal.present();
 

@@ -102,6 +102,7 @@ export class PlantListPage implements OnInit {
   async openModal() {
     const modal = await this.modalController.create({
       component: AddPlantModalComponent,
+      componentProps: {action: 'create'}
     });
     await modal.present();
 

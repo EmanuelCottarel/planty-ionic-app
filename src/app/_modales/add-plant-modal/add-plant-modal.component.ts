@@ -23,7 +23,7 @@ export class AddPlantModalComponent implements OnInit {
     protected photoService: PhotoService) {
   }
 
-  plant!: Plant;
+  plant?: Plant;
 
   newPlant: Plant = {
     name: '',
@@ -36,14 +36,17 @@ export class AddPlantModalComponent implements OnInit {
   }
 
   title: string = "Ajouter une plante";
+  action!: string
 
   plantForm = plantForm;
 
   ngOnInit() {
-    console.log(this.plant)
-    if (this.plant) {
+    if (this.action=== 'update' && this.plant) {
+      console.log('update')
       this.title = "Modifier une plante";
       this.plantForm.patchValue(this.plant)
+    }else{
+      this.plantForm.reset()
     }
   }
 
