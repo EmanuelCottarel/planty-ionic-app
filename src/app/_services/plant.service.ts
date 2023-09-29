@@ -53,7 +53,7 @@ export class PlantService {
       picturePath: '/assets/img/monstera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Monstera',
       plantPhoto: [],
-      species:'Monstera'
+      species: 'Monstera'
     },
     {
       id: 5,
@@ -82,12 +82,18 @@ export class PlantService {
     this.toastService.showSuccesToast('Plante supprimée!')
   }
 
+  /*
+  * Calcul la date d'arrosage à partir de la date du dernier arrosage et de la fréquence
+   */
   getWateringDate(plant: Plant) {
     const wateringDate = new Date(plant.lastWatering);
     wateringDate.setDate(wateringDate.getDate() + plant.wateringPeriod);
     return wateringDate;
   }
 
+  /*
+  Retourne la liste des plantes à arroser, c.a.d les plantes dont la date d'arrosage est passée ou le jour meme
+   */
   getPlantsToWater(): Plant[] {
     return this.getAll().filter((plant) => {
       const today = new Date;

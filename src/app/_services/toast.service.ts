@@ -8,6 +8,9 @@ export class ToastService {
 
   constructor(private readonly toastController: ToastController) { }
 
+  /*
+  Affiche un toast de succés
+   */
   async showSuccesToast(message:string){
     const toast = await this.toastController.create({
       message: message,
@@ -18,6 +21,9 @@ export class ToastService {
     await toast.present();
   }
 
+  /*
+  Affiche un toast d'échec'
+   */
   async showErrorToast(message:string){
     const toast = await this.toastController.create({
       message: message,

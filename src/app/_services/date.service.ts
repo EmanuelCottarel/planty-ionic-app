@@ -8,6 +8,10 @@ export class DateService {
   constructor() {
   }
 
+  /**
+   *
+   * Formate un objet Date Javascript en string date
+   */
   formatDateToString(date: Date): string {
     let year = date.getFullYear();
     let month = date.getMonth() + 1;

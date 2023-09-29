@@ -63,6 +63,9 @@ export class HomePage implements OnInit {
     this.nbPlantToWater = this.plantToWater.length;
   }
 
+  /*
+  Met à jour la date d'arrosage, enregistrée ensuite par la méthode updatePlant()
+   */
   waterPlant(plant: Plant) {
     const today = new Date();
     plant.lastWatering = this.dateService.formatDateToString(today);

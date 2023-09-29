@@ -15,10 +15,10 @@ export class PhotoService {
 
   public photos: PlantPhoto[] = [];
   private PHOTO_STORAGE: string = 'photos';
-  private platform: Platform;
 
-  constructor(platform: Platform, private plantService: PlantService) {
-    this.platform = platform;
+  constructor(
+    private platform: Platform
+    ) {
   }
 
   public async addNewToGallery(plant: Plant) {
@@ -42,7 +42,6 @@ export class PhotoService {
 
   private async savePicture(photo: Photo, plant?: Plant) {
     const base64Data = await this.readAsBase64(photo);
-
     const fileName = Date.now() + '.jpeg';
     const savedFile = await Filesystem.writeFile({
       path: fileName,
