@@ -4,10 +4,11 @@ import {FormsModule} from '@angular/forms';
 import {ActionSheetController, AlertController, IonicModule, ModalController} from '@ionic/angular';
 import {PlantService} from "../_services/plant.service";
 import {Plant} from "../_interfaces/plant";
-import {RouterLink} from "@angular/router";
+import {Event as NavigationEvent, NavigationEnd, Router, RouterLink} from "@angular/router";
 import {AddPlantModalComponent} from "../_modales/add-plant-modal/add-plant-modal.component";
 import {DateService} from "../_services/date.service";
 import {ToastService} from "../_services/toast.service";
+
 
 @Component({
   selector: 'app-plant-list',
@@ -24,13 +25,23 @@ export class PlantListPage implements OnInit {
     private readonly modalController: ModalController,
     private readonly actionSheetController: ActionSheetController,
     private readonly dateService: DateService,
-    private readonly toastService: ToastService) {
+    private readonly toastService: ToastService,
+    private router: Router) {
   }
+
 
   plantList!: Plant[]
 
   ngOnInit() {
     this.plantList = this.plantService.getAll();
+
+    this.router.events
+      .subscribe(
+        (event: NavigationEvent) => {
+          if (event instanceof NavigationEnd) {
+            this.plantList = this.plantService.getAll();
+          }
+        });
   }
 
   async presentDeleteAlert(plant: Plant) {
@@ -53,7 +64,7 @@ export class PlantListPage implements OnInit {
     return await alert.present();
   }
 
-   async presentActionSheet(plant: Plant) {
+  async presentActionSheet(plant: Plant) {
     const actionSheet = await this.actionSheetController.create({
       header: plant.name,
       buttons: [
@@ -76,11 +87,11 @@ export class PlantListPage implements OnInit {
   }
 
   deletePlant(plantId: number) {
-   this.plantService.deletePlant(plantId);
-   this.plantList = this.plantService.getAll();
+    this.plantService.deletePlant(plantId);
+    this.plantList = this.plantService.getAll();
   }
 
-   waterPlant(plant: Plant) {
+  waterPlant(plant: Plant) {
     const today = new Date();
     plant.lastWatering = this.dateService.formatDateToString(today);
 

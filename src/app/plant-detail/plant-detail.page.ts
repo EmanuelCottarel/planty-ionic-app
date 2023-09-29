@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {CommonModule, Location} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {IonicModule, ModalController} from '@ionic/angular';
@@ -27,6 +27,8 @@ export class PlantDetailPage implements OnInit {
 
   plant!: Plant;
   mainPictureUrl?: string;
+
+  @Output() updatePlantlistEvent = new EventEmitter
 
   ngOnInit() {
     this.plant = this.location.getState() as Plant;

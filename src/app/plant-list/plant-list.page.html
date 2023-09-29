@@ -10,20 +10,17 @@
     <ion-item-sliding *ngFor="let plant of plantList">
       <ion-item>
         <ion-avatar>
-
           <img *ngIf="plant.plantPhoto.length === 0" alt="Photo de la plante {{plant.name}}"
                src="{{plant.picturePath}}"/>
           <img *ngIf="plant.plantPhoto.length > 0" alt="Photo de la plante {{plant.name}}"
                src="{{plant.plantPhoto[0].webviewPath}}"/>
         </ion-avatar>
-        <!--        <ion-icon name="leaf" slot="start"></ion-icon>-->
         <ion-label class="ml-2">
           <div>{{plant.name}}</div>
         </ion-label>
         <ion-label class="list__inline">
           <ion-icon name="water" color="primary" size="small"></ion-icon>
           {{plant.lastWatering}}
-
         </ion-label>
 
         <ion-buttons>

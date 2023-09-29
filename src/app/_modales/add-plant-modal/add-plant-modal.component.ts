@@ -23,7 +23,6 @@ export class AddPlantModalComponent implements OnInit {
     protected photoService: PhotoService) {
   }
 
-  // newPlant!: Plant;
   plant!: Plant;
 
   newPlant: Plant = {
@@ -58,16 +57,10 @@ export class AddPlantModalComponent implements OnInit {
       this.plantService.updatePlant(this.plant)
     }else{
       Object.assign(this.newPlant, this.plantForm.getRawValue())
-      // console.log(this.newPlant)
       this.plantService.addPlant(this.newPlant);
 
     }
     return this.modalController.dismiss(null, 'confirm');
-  }
-
-  deletePictures() {
-    this.photoService.deletePictures()
-
   }
 
   cancel() {
