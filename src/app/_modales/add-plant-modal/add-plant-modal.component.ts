@@ -24,6 +24,7 @@ export class AddPlantModalComponent implements OnInit {
   }
 
   // newPlant!: Plant;
+  plant!: Plant;
 
   newPlant: Plant = {
     name: '',
@@ -35,9 +36,16 @@ export class AddPlantModalComponent implements OnInit {
     plantPhoto: [],
   }
 
+  title: string = "Ajouter une plante";
+
   plantForm = plantForm;
 
   ngOnInit() {
+    console.log(this.plant)
+    if (this.plant) {
+      this.title = "Modifier une plante";
+      this.plantForm.patchValue(this.plant)
+    }
   }
 
   addPhotoToGallery() {
@@ -45,9 +53,15 @@ export class AddPlantModalComponent implements OnInit {
   }
 
   handleSubmit() {
-    Object.assign(this.newPlant, this.plantForm.getRawValue())
-    // console.log(this.newPlant)
-    this.plantService.addPlant(this.newPlant);
+    if (this.plant){
+       Object.assign(this.plant, this.plantForm.getRawValue())
+      this.plantService.updatePlant(this.plant)
+    }else{
+      Object.assign(this.newPlant, this.plantForm.getRawValue())
+      // console.log(this.newPlant)
+      this.plantService.addPlant(this.newPlant);
+
+    }
     return this.modalController.dismiss(null, 'confirm');
   }
 

@@ -4,6 +4,9 @@
       <ion-icon name="chevron-back" size="large" slot="icon-only"></ion-icon>
     </ion-button>
     <ion-title>{{plant.name}}</ion-title>
+    <ion-button (click)=openModal()  fill="empty" slot="end">
+      <ion-icon name="create-outline" size="large" slot="icon-only"></ion-icon>
+    </ion-button>
   </ion-toolbar>
 </ion-header>
 
@@ -35,14 +38,14 @@
   </ion-list>
 
 
-    <h2 class="ion-margin-start">Gallerie</h2>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="3" *ngFor="let photo of plant.plantPhoto; index as position">
-          <ion-img [src]="photo.webviewPath"></ion-img>
-        </ion-col>
-      </ion-row>
-    </ion-grid>
+  <h2 class="ion-margin-start">Gallerie</h2>
+  <ion-grid>
+    <ion-row>
+      <ion-col size="3" *ngFor="let photo of plant.plantPhoto; index as position">
+        <ion-img [src]="photo.webviewPath"></ion-img>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
     <ion-fab-button (click)="addPhotoToGallery()">

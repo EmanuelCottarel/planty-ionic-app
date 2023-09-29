@@ -1,11 +1,13 @@
 import {Component, OnInit} from '@angular/core';
 import {CommonModule, Location} from '@angular/common';
 import {FormsModule} from '@angular/forms';
-import {IonicModule} from '@ionic/angular';
+import {IonicModule, ModalController} from '@ionic/angular';
 import {Plant} from "../_interfaces/plant";
 import {RouterLink} from "@angular/router";
 import {Browser} from "@capacitor/browser";
 import {PhotoService} from "../_services/photo.service";
+import {AddPlantModalComponent} from "../_modales/add-plant-modal/add-plant-modal.component";
+import {PlantService} from "../_services/plant.service";
 
 @Component({
   selector: 'app-plant-detail',
@@ -18,7 +20,9 @@ export class PlantDetailPage implements OnInit {
 
   constructor(
     private readonly location: Location,
-    private readonly photoService: PhotoService) {
+    private readonly photoService: PhotoService,
+    private readonly modalController: ModalController,
+) {
   }
 
   plant!: Plant;
@@ -37,9 +41,21 @@ export class PlantDetailPage implements OnInit {
       await Browser.open({url: this.plant.website})
     }
   }
-
     addPhotoToGallery() {
     this.photoService.addNewToGallery(this.plant);
+  }
+
+  async openModal() {
+    const modal = await this.modalController.create({
+      component: AddPlantModalComponent,
+      componentProps: {plant: this.plant}
+    });
+    await modal.present();
+
+    const {data, role} = await modal.onWillDismiss();
+    if (role === 'confirm') {
+
+    }
   }
 
 }
