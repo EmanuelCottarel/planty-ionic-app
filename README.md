@@ -33,12 +33,12 @@ Ou lancer avec capacitor
     - son nom
     - son nombre de plante
     
-- [ ] L'utilisateur peut voir la liste de ses plantes - Page liste
+- [X] L'utilisateur peut voir la liste de ses plantes - Page liste
   - nom
   - besoin d'arrosage ou non sous forme de badge
   - date du prochain arrosage
 
-- [ ] L'utilisateur peut voir le détail d'une de ses plantes - Page détail de la plante
+- [X] L'utilisateur peut voir le détail d'une de ses plantes - Page détail de la plante
   - nom
   - date d'acquisition
   - coordonnées gps
