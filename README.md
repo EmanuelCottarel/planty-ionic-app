@@ -57,7 +57,7 @@ Ou lancer avec capacitor
 - [X] L'utilisateur peut supprimer sa plante - Page détail de la plante
   - une popup de confirmation apparait
      
-## A venir
+## A venir
 ### Branche dev - développement en cours
 - Pouvoir ajouter les coordonnées de la plante
 - Pouvoir voir ou se trouve la plante sur une carte
