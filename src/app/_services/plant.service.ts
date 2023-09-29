@@ -20,7 +20,8 @@ export class PlantService {
       picturePath: '/assets/img/areca.jpg',
       website: 'https://fr.wikipedia.org/wiki/Areca',
       plantPhoto: [],
-      species: 'Areca'
+      species: 'Areca',
+      position: 'Intérieur'
     },
     {
       id: 2,
@@ -32,6 +33,7 @@ export class PlantService {
       picturePath: '/assets/img/schefflera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Schefflera',
       plantPhoto: [],
+      position: 'Intérieur'
     },
     {
       id: 3,
@@ -42,7 +44,8 @@ export class PlantService {
       picturePath: '/assets/img/aloe-vera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Aloe_vera',
       plantPhoto: [],
-      species: 'Aloe-vera'
+      species: 'Aloe-vera',
+      position: 'Intérieur'
     },
     {
       id: 4,
@@ -53,7 +56,8 @@ export class PlantService {
       picturePath: '/assets/img/monstera.jpg',
       website: 'https://fr.wikipedia.org/wiki/Monstera',
       plantPhoto: [],
-      species:'Monstera'
+      species:'Monstera',
+      position: 'Intérieur'
     },
     {
       id: 5,
@@ -64,7 +68,9 @@ export class PlantService {
       picturePath: '/assets/img/solanum.jpg',
       website: 'https://fr.wikipedia.org/wiki/Solanum',
       plantPhoto: [],
-      species: 'Solanum'
+      species: 'Solanum',
+      position: 'Intérieur'
+
     }
   ]
 
